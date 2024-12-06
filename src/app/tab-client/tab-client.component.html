@@ -1,0 +1,182 @@
+
+<body class="g-sidenav-show   bg-gray-100">
+    
+    <main class="main-content position-relative border-radius-lg ">
+    
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="card mb-4">
+              <div class="card-header pb-0 d-flex align-items-center justify-content-between">
+                <h6 class="mb-0">All Clients</h6>
+                <a (click)="GoToAddClient()" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Add</a>
+            </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clients</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CIN</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> PASSWORD</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> IDENTIFIANT</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                        <th class="text-secondary opacity-7"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="nav-bar">
+                      <tr *ngFor="let client of  listclient ">
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">
+                                <span>{{ client.name }}</span>
+                               
+                              </h6>
+                              <p class="text-xs text-secondary mb-0">
+                                <span>{{ client.email }}</span>
+                                
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">
+                            <span>{{ client.cin }}</span>
+                          </p>
+                        </td>
+
+                        <td class="align-middle text-center text-sm">
+                          <span>{{ client.password | maskPassword }}</span>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">
+                            <span>{{ client.uid }}</span>
+                          </p>
+                        </td>
+
+                     
+                        <td class="align-middle text-center text-sm">
+                          <a [routerLink]="['/update', client.$key]" class="edit">Edit
+                          </a>
+                        </td>
+                        
+
+                        <td class="example-button-container">
+                          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+                          <button mat-mini-fab color="warn" (click)="openDialog(client.$key)">
+                          <mat-icon>delete_forever</mat-icon>
+                        </button>
+                      </td>
+                         
+                      </tr>
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></main></body>
+
+<!--<input type="text" class="form-control"  [(ngModel)]="client.LastName_Name" name="LastName_Name"> -->
+      
+      <!-- 
+        <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">John Michael</h6>
+                              <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">123</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success">Online</span>
+                        </td>
+                        
+                        <td class="align-middle">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                              <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">1234</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                        </td>
+                       
+                        <td class="align-middle">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                           
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">Laurent Perrier</h6>
+                              <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">12345</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success">Online</span>
+                        </td>
+                       
+                        <td class="align-middle">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                          
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">Michael Levi</h6>
+                              <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">7896</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success">Online</span>
+                        </td>
+                        
+                        <td class="align-middle">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            Edit
+                          </a>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+      -->

@@ -1,0 +1,35 @@
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <a class="btn btn-dark my-3" href="/tables">Back</a>
+
+        <h6 class="m-0 font-weight-bold text-primary" style="font-size: medium; font-style: italic;">
+            Add Client</h6>
+    </div>
+    <div class="card-body">
+       <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()" >
+           <div class="form-group mb-3">
+            <label for="cin">Cin :</label>
+            <input type="text" name="cin" id="cin" formControlName="cin"  class="form-control" >
+           </div>
+           <div class="form-group mb-3">
+            <label for="name">Last Name & Name :</label>
+            <input type="text" name="name" id="name" class="form-control" formControlName="name"  >
+           </div>
+
+           <div class="form-group mb-3">
+            <label for="email">Email :</label>
+            <input type="text" name="email" id="email" class="form-control" formControlName="email"   >
+        </div>
+       <div class="form-group mb-3">
+        <label for="password">Password : </label> 
+        <input type="text" name="password" id="password" formControlName="password" class="form-control">
+
+        </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-dark" [disabled]="addClientForm.valid">Add Client</button>
+            </div>
+       
+       </form>
+    </div>
+</div>

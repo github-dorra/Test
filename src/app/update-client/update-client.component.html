@@ -1,0 +1,34 @@
+<p>Welcome </p>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <button class="btn btn-primary my-3" [routerLink]="['/tables']">Back</button>
+        <h6 class="m-0 font-weight-bold text-primary">Update client</h6>
+    </div>
+    <div class="card-body">
+       <form [formGroup]="formGroup" (ngSubmit)="onSubmit1()" >
+           <div class="form-group mb-3">
+            <label for="cin">Cin :</label>
+            <input type="text" class="form-control" formControlName="cin" name="cin" value = "{{ data.cin }}" [(ngModel)]="data.cin">
+           </div>
+           <div class="form-group mb-3">
+            <label for="name">LastName_Name :</label>
+            <input type="text" class="form-control" formControlName="name" name="name" value = "{{ data.name }}" [(ngModel)]="data.name">
+           </div>
+
+       <div class="form-group mb-3">
+        <label for="email">Email :</label> 
+        <input type="text" class="form-control" formControlName="email" name="email" value = "{{ data.email }}" [(ngModel)]="data.email">
+
+        </div>
+
+ 
+           <div class="form-group">
+                <button type="submit" class="btn btn-primary" >Update</button>
+            </div>
+
+
+            
+       
+       </form>
+    </div>
+</div>
